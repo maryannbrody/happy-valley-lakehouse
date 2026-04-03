@@ -1,0 +1,1277 @@
+/* ==========================================================================
+   Happy Valley Lake House — Guest Book
+   Modern Rustic Lakehouse Design
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Custom Properties
+   -------------------------------------------------------------------------- */
+:root {
+  /* Primary palette */
+  --color-primary: #2D4A3E;
+  --color-primary-light: #3A5F50;
+  --color-primary-dark: #1E332B;
+  --color-background: #F5F0EB;
+  --color-accent: #C8A96E;
+  --color-accent-light: #D4BA85;
+  --color-accent-dark: #B0924F;
+  --color-text: #2C2416;
+  --color-text-light: #5A4D3B;
+
+  /* Supporting colors */
+  --color-sage: #8FAE8B;
+  --color-sage-light: #B6CCAF;
+  --color-lake-blue: #5B8FA8;
+  --color-lake-blue-light: #89B5C8;
+  --color-cream-dark: #E8E0D6;
+  --color-white: #FFFFFF;
+  --color-overlay: rgba(44, 36, 22, 0.55);
+  --color-overlay-light: rgba(44, 36, 22, 0.08);
+
+  /* Category badge colors */
+  --color-cat-groceries: #8FAE8B;
+  --color-cat-hiking: #5B8FA8;
+  --color-cat-visit: #C8A96E;
+  --color-cat-eat: #C47A5A;
+  --color-cat-drink: #8B7BAE;
+
+  /* Typography */
+  --font-heading: 'Fraunces', 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, monospace;
+
+  /* Font sizes — fluid scale */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.8rem);
+  --text-sm: clamp(0.8rem, 0.76rem + 0.25vw, 0.9rem);
+  --text-base: clamp(0.95rem, 0.9rem + 0.3vw, 1.08rem);
+  --text-lg: clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
+  --text-xl: clamp(1.3rem, 1.1rem + 0.8vw, 1.7rem);
+  --text-2xl: clamp(1.6rem, 1.3rem + 1.2vw, 2.2rem);
+  --text-3xl: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --text-4xl: clamp(2.4rem, 1.7rem + 3vw, 4rem);
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 8rem;
+  --section-padding: clamp(3rem, 5vw, 6rem);
+
+  /* Layout */
+  --max-width: 72rem;
+  --max-width-narrow: 48rem;
+  --nav-height: 3.75rem;
+  --border-radius: 0.5rem;
+  --border-radius-lg: 0.75rem;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(44, 36, 22, 0.06);
+  --shadow-md: 0 4px 12px rgba(44, 36, 22, 0.08);
+  --shadow-lg: 0 8px 30px rgba(44, 36, 22, 0.1);
+}
+
+
+/* --------------------------------------------------------------------------
+   Reset & Base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Subtle grain texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-dark);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+
+/* --------------------------------------------------------------------------
+   Typography
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: var(--text-4xl); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+
+.section-title {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-md);
+}
+
+.section-subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-light);
+  font-weight: 400;
+  max-width: 36rem;
+}
+
+.section-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.accent-text {
+  color: var(--color-accent-dark);
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+}
+
+
+/* --------------------------------------------------------------------------
+   Layout
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+
+.container--narrow {
+  max-width: var(--max-width-narrow);
+}
+
+section {
+  padding-block: var(--section-padding);
+}
+
+section:nth-child(even) {
+  background-color: var(--color-white);
+}
+
+
+/* --------------------------------------------------------------------------
+   Sticky Navigation
+   -------------------------------------------------------------------------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--nav-height);
+  background-color: rgba(245, 240, 235, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-cream-dark);
+  transition: box-shadow var(--transition-base);
+}
+
+.nav.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+
+.nav__logo {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.nav__links {
+  display: none;
+  gap: var(--space-lg);
+}
+
+.nav__links a {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-light);
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+.nav__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width var(--transition-base);
+}
+
+.nav__links a:hover {
+  color: var(--color-primary);
+}
+
+.nav__links a:hover::after {
+  width: 100%;
+}
+
+.nav__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--color-text);
+}
+
+.nav__toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Mobile nav drawer */
+.nav__mobile {
+  display: none;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(245, 240, 235, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 999;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.nav__mobile.open {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.nav__mobile a {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-cream-dark);
+}
+
+.nav__mobile a:hover {
+  color: var(--color-accent-dark);
+}
+
+@media (min-width: 64rem) {
+  .nav__links {
+    display: flex;
+  }
+  .nav__toggle {
+    display: none;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero__image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gradient overlay */
+.hero__image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(44, 36, 22, 0.7) 0%,
+    rgba(44, 36, 22, 0.3) 40%,
+    rgba(44, 36, 22, 0.05) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: var(--space-2xl) var(--space-lg);
+  width: 100%;
+}
+
+.hero__title {
+  font-size: var(--text-4xl);
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero__subtitle {
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  max-width: 32rem;
+  margin-bottom: var(--space-lg);
+}
+
+.hero__address {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+@media (min-width: 48rem) {
+  .hero {
+    min-height: 90vh;
+  }
+  .hero__content {
+    padding: var(--space-3xl) var(--space-lg);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   WiFi Credentials Card
+   -------------------------------------------------------------------------- */
+.wifi-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-cream-dark);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xl);
+  max-width: 28rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.wifi-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-sage));
+}
+
+.wifi-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.wifi-card__icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.wifi-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.wifi-card__field {
+  margin-bottom: var(--space-md);
+}
+
+.wifi-card__field:last-child {
+  margin-bottom: 0;
+}
+
+.wifi-card__label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-xs);
+}
+
+.wifi-card__value {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: var(--color-primary);
+  background: var(--color-background);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius);
+  user-select: all;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.wifi-card__value:hover {
+  background: var(--color-cream-dark);
+}
+
+
+/* --------------------------------------------------------------------------
+   Info Callout
+   -------------------------------------------------------------------------- */
+.callout {
+  background: var(--color-white);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  padding: var(--space-lg) var(--space-xl);
+  margin-block: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.callout--sage {
+  border-left-color: var(--color-sage);
+}
+
+.callout--blue {
+  border-left-color: var(--color-lake-blue);
+}
+
+.callout__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.callout__text {
+  color: var(--color-text-light);
+  font-size: var(--text-base);
+}
+
+
+/* --------------------------------------------------------------------------
+   Content Cards
+   -------------------------------------------------------------------------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 40rem) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .card-grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xl);
+  border: 1px solid var(--color-cream-dark);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card__icon {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-md);
+}
+
+.card__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-sm);
+}
+
+.card__text {
+  color: var(--color-text-light);
+  font-size: var(--text-base);
+  line-height: 1.7;
+}
+
+.card__detail {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+  margin-top: var(--space-md);
+}
+
+.card__detail svg {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   Category Badges (Recommendations / Map)
+   -------------------------------------------------------------------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25em 0.7em;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge--groceries {
+  background-color: rgba(143, 174, 139, 0.15);
+  color: #5A7D56;
+}
+
+.badge--hiking {
+  background-color: rgba(91, 143, 168, 0.15);
+  color: #3E728A;
+}
+
+.badge--visit {
+  background-color: rgba(200, 169, 110, 0.15);
+  color: #9A7D3C;
+}
+
+.badge--eat {
+  background-color: rgba(196, 122, 90, 0.15);
+  color: #A25A3A;
+}
+
+.badge--drink {
+  background-color: rgba(139, 123, 174, 0.15);
+  color: #6B5A8E;
+}
+
+
+/* --------------------------------------------------------------------------
+   Recommendation List Items
+   -------------------------------------------------------------------------- */
+.rec-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.rec-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background: var(--color-white);
+  border: 1px solid var(--color-cream-dark);
+  border-radius: var(--border-radius-lg);
+  transition: box-shadow var(--transition-base);
+}
+
+.rec-item:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.rec-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.rec-item__name {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.rec-item__distance {
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+  white-space: nowrap;
+}
+
+.rec-item__description {
+  color: var(--color-text-light);
+  font-size: var(--text-base);
+}
+
+
+/* --------------------------------------------------------------------------
+   Seasonal Guide — Tabs & Cards
+   -------------------------------------------------------------------------- */
+.season-tabs {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: var(--space-xs);
+}
+
+.season-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.season-tab {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 999px;
+  background: var(--color-white);
+  border: 1px solid var(--color-cream-dark);
+  color: var(--color-text-light);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.season-tab:hover {
+  background: var(--color-cream-dark);
+  color: var(--color-text);
+}
+
+.season-tab.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Season color variants */
+.season-tab[data-season="summer"].active {
+  background: var(--color-lake-blue);
+  border-color: var(--color-lake-blue);
+}
+
+.season-tab[data-season="fall"].active {
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+}
+
+.season-tab[data-season="winter"].active {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.season-tab[data-season="spring"].active {
+  background: var(--color-sage);
+  border-color: var(--color-sage);
+  color: var(--color-text);
+}
+
+.season-panel {
+  display: none;
+}
+
+.season-panel.active {
+  display: block;
+}
+
+.season-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-cream-dark);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xl);
+}
+
+.season-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.season-card__item {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.season-card__bullet {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin-top: 0.1em;
+}
+
+.season-card__text {
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+.season-card__text strong {
+  color: var(--color-text);
+}
+
+
+/* --------------------------------------------------------------------------
+   Room Showcase
+   -------------------------------------------------------------------------- */
+.room-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 48rem) {
+  .room-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .room-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.room-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-cream-dark);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.room-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.room-card__image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--color-cream-dark);
+}
+
+.room-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.room-card:hover .room-card__image img {
+  transform: scale(1.03);
+}
+
+.room-card__body {
+  padding: var(--space-lg);
+}
+
+.room-card__name {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-xs);
+}
+
+.room-card__detail {
+  font-size: var(--text-sm);
+  color: var(--color-accent-dark);
+  font-weight: 500;
+  margin-bottom: var(--space-sm);
+}
+
+.room-card__description {
+  color: var(--color-text-light);
+  font-size: var(--text-base);
+}
+
+
+/* --------------------------------------------------------------------------
+   Contact Strip
+   -------------------------------------------------------------------------- */
+.contact-strip {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+@media (min-width: 40rem) {
+  .contact-strip {
+    flex-direction: row;
+    gap: var(--space-xl);
+  }
+}
+
+.contact-strip__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.contact-strip__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  flex-shrink: 0;
+}
+
+.contact-strip__icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.contact-strip__name {
+  font-weight: 600;
+  font-size: var(--text-base);
+}
+
+.contact-strip__phone {
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+}
+
+.contact-strip__phone a {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+
+/* --------------------------------------------------------------------------
+   Checklist (Departure)
+   -------------------------------------------------------------------------- */
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 36rem;
+}
+
+.checklist__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  font-size: var(--text-base);
+  color: var(--color-text-light);
+}
+
+.checklist__marker {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--color-cream-dark);
+  border-radius: var(--border-radius);
+  margin-top: 0.15em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.checklist__item:hover .checklist__marker {
+  border-color: var(--color-sage);
+  background-color: rgba(143, 174, 139, 0.1);
+}
+
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: 0.65em 1.5em;
+  border-radius: var(--border-radius);
+  transition: all var(--transition-fast);
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-white);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn--accent {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+.btn--accent:hover {
+  background-color: var(--color-accent-dark);
+}
+
+
+/* --------------------------------------------------------------------------
+   Fade-In Animations (Intersection Observer)
+   -------------------------------------------------------------------------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+}
+
+.fade-in.visible {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.fade-in-scale {
+  opacity: 0;
+}
+
+.fade-in-scale.visible {
+  animation: fadeInScale 0.5s ease forwards;
+}
+
+/* Staggered children */
+.stagger-children .fade-in:nth-child(1) { animation-delay: 0ms; }
+.stagger-children .fade-in:nth-child(2) { animation-delay: 80ms; }
+.stagger-children .fade-in:nth-child(3) { animation-delay: 160ms; }
+.stagger-children .fade-in:nth-child(4) { animation-delay: 240ms; }
+.stagger-children .fade-in:nth-child(5) { animation-delay: 320ms; }
+.stagger-children .fade-in:nth-child(6) { animation-delay: 400ms; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .fade-in-scale {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.footer {
+  background-color: var(--color-primary-dark);
+  color: rgba(255, 255, 255, 0.75);
+  padding: var(--space-2xl) 0;
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 48rem) {
+  .footer__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.footer__brand {
+  max-width: 24rem;
+}
+
+.footer__logo {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.footer__tagline {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer__contact a {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: var(--text-sm);
+  transition: color var(--transition-fast);
+}
+
+.footer__contact a:hover {
+  color: var(--color-accent-light);
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+}
+
+
+/* --------------------------------------------------------------------------
+   Utility Classes
+   -------------------------------------------------------------------------- */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+.mt-2xl { margin-top: var(--space-2xl); }
+
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+.mb-2xl { margin-bottom: var(--space-2xl); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   Print Styles
+   -------------------------------------------------------------------------- */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body::after {
+    display: none;
+  }
+
+  body {
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  .nav,
+  .hero__image,
+  .footer,
+  .season-tabs,
+  .btn,
+  .nav__mobile {
+    display: none !important;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 1rem 0;
+  }
+
+  .hero__content {
+    padding: 0;
+  }
+
+  .hero__title,
+  .hero__subtitle,
+  .hero__address {
+    color: #000 !important;
+  }
+
+  section {
+    padding-block: 1.5rem;
+    page-break-inside: avoid;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .card,
+  .room-card,
+  .wifi-card,
+  .callout,
+  .rec-item,
+  .season-card {
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+
+  .card-grid,
+  .room-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fade-in,
+  .fade-in-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  a[href]::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+    color: #666 !important;
+  }
+
+  .nav__links a[href]::after,
+  .nav__mobile a[href]::after {
+    content: none;
+  }
+}
