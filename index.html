@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Valley Lake House — Guest Book</title>
+  <meta name="description" content="Welcome guide for guests of the Happy Valley Lake House on Lake Wyola in Shutesbury, MA.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+
+  <!-- Leaflet.js -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Site Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ================================================================
+       NAVIGATION
+       ================================================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo">Happy Valley Lake House</a>
+
+      <div class="nav__links">
+        <a href="#arrival">Arrival</a>
+        <a href="#cabin">The Cabin</a>
+        <a href="#essentials">Essentials</a>
+        <a href="#water">On the Water</a>
+        <a href="#swimming">Swimming</a>
+        <a href="#recommendations">Local Guide</a>
+        <a href="#seasonal">Seasons</a>
+        <a href="#departure">Departure</a>
+      </div>
+
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="nav__mobile" aria-label="Mobile navigation">
+      <a href="#arrival">Arrival</a>
+      <a href="#cabin">The Cabin</a>
+      <a href="#essentials">Essentials</a>
+      <a href="#water">On the Water</a>
+      <a href="#swimming">Swimming</a>
+      <a href="#recommendations">Local Guide</a>
+      <a href="#seasonal">Seasons</a>
+      <a href="#departure">Departure</a>
+    </div>
+  </nav>
+
+  <!-- ================================================================
+       HERO
+       ================================================================ -->
+  <section id="hero" class="hero">
+    <div class="hero__image">
+      <!-- REPLACE: Swap this Unsplash placeholder with a photo of the lake house or Lake Wyola -->
+      <img src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?auto=format&fit=crop&w=1920&q=80" alt="View of a lake through trees at golden hour">
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__title fade-in">Welcome to the<br>Happy Valley Lake House</h1>
+      <p class="hero__subtitle fade-in">We're so glad you're here. Make yourselves at home — put your feet up, take the kayaks out, or just sit on the deck and watch the water. That's what this place is for.</p>
+      <p class="hero__address fade-in">45 Shore Drive, Shutesbury, MA 01072</p>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       ARRIVAL & ACCESS
+       ================================================================ -->
+  <section id="arrival">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Getting Here</span>
+        <h2 class="section-title">Arrival &amp; Access</h2>
+        <p class="section-subtitle">Everything you need to get in the door and settled.</p>
+      </div>
+
+      <div class="card-grid fade-in">
+        <div class="card">
+          <div class="card__icon">🕒</div>
+          <h3 class="card__title">Check-in</h3>
+          <p class="card__text">Check-in is at <strong>3:00 PM</strong>. The cabin will be ready and waiting for you.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">🔑</div>
+          <h3 class="card__title">Keypad Code</h3>
+          <p class="card__text">Enter <strong>3739</strong> on the keypad, then press the <strong>horizontal button</strong> to unlock.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">🚗</div>
+          <h3 class="card__title">Parking</h3>
+          <p class="card__text">Please park in the <strong>driveway only</strong>. There's room for a couple of cars.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">🥾</div>
+          <h3 class="card__title">Shoes Off</h3>
+          <p class="card__text">We keep a no-shoes policy inside the cabin. Kick them off at the door and make yourself comfortable.</p>
+        </div>
+      </div>
+
+      <div class="callout callout--sage mt-xl fade-in">
+        <h4 class="callout__title">Questions? Need anything?</h4>
+        <p class="callout__text"><strong>Sam:</strong> <a href="tel:+14135598911">(413) 559-8911</a> &nbsp;&middot;&nbsp; <strong>Mary Ann:</strong> <a href="tel:+14135881609">(413) 588-1609</a></p>
+        <p class="callout__text">Don't hesitate to reach out — we're happy to help.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       THE CABIN
+       ================================================================ -->
+  <section id="cabin">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Your Space</span>
+        <h2 class="section-title">The Cabin</h2>
+        <p class="section-subtitle">Small but thoughtful — every room has a purpose and a personality.</p>
+      </div>
+
+      <div class="room-grid stagger-children">
+        <div class="room-card fade-in">
+          <div class="room-card__image">
+            <!-- REPLACE: Photo of the main room / living area with lake views -->
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Bright cabin living room with lake view">
+          </div>
+          <div class="room-card__body">
+            <h3 class="room-card__name">Main Room</h3>
+            <p class="room-card__detail">Living Room + Kitchen &middot; Lake Views</p>
+            <p class="room-card__description">The living room and kitchen share one open space with big windows facing the lake. It's the heart of the house — cook, eat, read, or just stare at the water. You won't get tired of the view.</p>
+          </div>
+        </div>
+
+        <div class="room-card fade-in">
+          <div class="room-card__image">
+            <!-- REPLACE: Photo of the loft bedroom -->
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Cozy loft bedroom with warm light">
+          </div>
+          <div class="room-card__body">
+            <h3 class="room-card__name">Loft Bedroom</h3>
+            <p class="room-card__detail">Queen Bed &middot; Great Morning Light</p>
+            <p class="room-card__description">Up the stairs you'll find a queen bed tucked under the roofline. The light up here in the morning is something special. This is our favorite spot to wake up.</p>
+          </div>
+        </div>
+
+        <div class="room-card fade-in">
+          <div class="room-card__image">
+            <!-- REPLACE: Photo of the guest room -->
+            <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80" alt="Simple, clean guest bedroom">
+          </div>
+          <div class="room-card__body">
+            <h3 class="room-card__name">Guest Room</h3>
+            <p class="room-card__detail">Queen Bed &middot; First Floor</p>
+            <p class="room-card__description">A queen bed on the first floor — simple, quiet, and comfortable.</p>
+          </div>
+        </div>
+
+        <div class="room-card fade-in">
+          <div class="room-card__image">
+            <!-- REPLACE: Photo of the bunk room -->
+            <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80" alt="Bunk beds in a cabin room">
+          </div>
+          <div class="room-card__body">
+            <h3 class="room-card__name">Bunk Room</h3>
+            <p class="room-card__detail">4 Twin Beds &middot; Great for Kids</p>
+            <p class="room-card__description">Four twin beds, perfect for kids (or kids at heart). It's cozy, and everyone loves it.</p>
+          </div>
+        </div>
+
+        <div class="room-card fade-in">
+          <div class="room-card__image">
+            <!-- REPLACE: Photo of the renovated bathroom -->
+            <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80" alt="Renovated cabin bathroom">
+          </div>
+          <div class="room-card__body">
+            <h3 class="room-card__name">Bathroom</h3>
+            <p class="room-card__detail">Recently Renovated &middot; DIY'd by Us</p>
+            <p class="room-card__description">Recently renovated by us (yes, we DIY'd the whole thing). Everything you need is in there — towels, soap, shampoo, the works.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       HOUSE ESSENTIALS
+       ================================================================ -->
+  <section id="essentials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Good to Know</span>
+        <h2 class="section-title">House Essentials</h2>
+        <p class="section-subtitle">WiFi, heating, kitchen, and the stuff that makes a stay comfortable.</p>
+      </div>
+
+      <!-- WiFi Card -->
+      <div class="wifi-card fade-in">
+        <div class="wifi-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.858 15.355-5.858 21.213 0"/>
+          </svg>
+        </div>
+        <h3 class="wifi-card__title">WiFi</h3>
+        <div class="wifi-card__field">
+          <p class="wifi-card__label">Network</p>
+          <p class="wifi-card__value">brodeo</p>
+        </div>
+        <div class="wifi-card__field">
+          <p class="wifi-card__label">Password</p>
+          <p class="wifi-card__value">ellieandbird29landy</p>
+        </div>
+      </div>
+
+      <!-- Heating & Cooling -->
+      <div class="mt-xl fade-in">
+        <h3>Heating &amp; Cooling</h3>
+        <div class="card-grid mt-md">
+          <div class="card">
+            <h4 class="card__title">Main Room</h4>
+            <p class="card__text">The split unit is controlled by a thermostat on the windowsill. It handles both heat and AC.</p>
+          </div>
+          <div class="card">
+            <h4 class="card__title">Bathroom</h4>
+            <p class="card__text">There's a baseboard heater with a knob — turn it as needed.</p>
+          </div>
+          <div class="card">
+            <h4 class="card__title">Bunk &amp; Guest Rooms</h4>
+            <p class="card__text">The wall thermostat is behind the bunk room door. Use that for both rooms. <strong>Please don't touch the baseboard thermostats</strong> — they're set where they need to be.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wood Stove -->
+      <div class="callout mt-xl fade-in">
+        <h4 class="callout__title">Wood Stove</h4>
+        <p class="callout__text">There's a wood stove in the main room, and using it is one of the best parts of staying here. Firewood is stocked outside. Open the damper before lighting, start with kindling and small pieces, and let it build. Close the damper partway once the fire is established to control the burn. Make sure the fire is fully out before leaving the house or going to bed.</p>
+      </div>
+
+      <!-- Kitchen -->
+      <div class="mt-xl fade-in">
+        <h3>Kitchen</h3>
+        <p class="mt-sm">We keep the kitchen stocked with basics — olive oil, salt, pepper, spices, coffee, tea, and a few other staples. Help yourself to anything that's here. If you use something up, no worries at all.</p>
+      </div>
+
+      <!-- Trash & Recycling -->
+      <div class="callout callout--sage mt-xl fade-in">
+        <h4 class="callout__title">Trash &amp; Recycling</h4>
+        <p class="callout__text">Shutesbury requires <strong>yellow town trash bags</strong> — you'll find them under the sink. The trash barrel is under the deck. For recycling, please separate paper from plastics and containers. Recycling goes in the bins next to the barrel.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Remaining sections (water, swimming, recommendations, seasonal,
+       departure, emergency, footer) will be added in the next update. -->
+
+  <!-- Site Script -->
+  <script src="script.js"></script>
+</body>
+</html>
