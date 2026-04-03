@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Valley Lake House — Guest Guide</title>
+  <style>
+    /* ====================================================================
+       Print-Optimized Guest Guide — 8.5 × 11 in
+       ==================================================================== */
+
+    @page {
+      size: 8.5in 11in;
+      margin: 0.75in 0.85in;
+    }
+
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Base */
+    html {
+      font-size: 11pt;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #2C2416;
+      line-height: 1.65;
+      background: #fff;
+    }
+
+    /* ---- Typography ---- */
+    h1, h2, h3, h4 {
+      font-family: 'Georgia', serif;
+      color: #2C2416;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 18pt;
+      margin-bottom: 0.4em;
+      padding-bottom: 0.3em;
+      border-bottom: 1.5px solid #2D4A3E;
+      color: #2D4A3E;
+    }
+
+    h3 {
+      font-size: 13pt;
+      margin-top: 1.2em;
+      margin-bottom: 0.3em;
+      color: #2D4A3E;
+    }
+
+    h4 {
+      font-size: 11pt;
+      font-style: italic;
+      margin-top: 0.8em;
+      margin-bottom: 0.2em;
+      color: #5A4D3B;
+    }
+
+    p {
+      margin-bottom: 0.6em;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    a {
+      color: #2D4A3E;
+      text-decoration: none;
+    }
+
+    /* ---- Page breaks ---- */
+    .page-break {
+      page-break-before: always;
+    }
+
+    .no-break {
+      page-break-inside: avoid;
+    }
+
+    /* ---- Cover Page ---- */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 9in;
+      text-align: center;
+      page-break-after: always;
+    }
+
+    .cover__rule-top {
+      width: 3in;
+      height: 1.5px;
+      background: #C8A96E;
+      margin-bottom: 2.5em;
+    }
+
+    .cover__label {
+      font-size: 8pt;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #999;
+      margin-bottom: 1.5em;
+    }
+
+    .cover__title {
+      font-size: 30pt;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #2D4A3E;
+      margin-bottom: 0.15em;
+    }
+
+    .cover__subtitle {
+      font-size: 14pt;
+      font-weight: 400;
+      font-style: italic;
+      color: #5A4D3B;
+      margin-bottom: 2em;
+    }
+
+    .cover__address {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      letter-spacing: 0.06em;
+      color: #777;
+      margin-bottom: 2.5em;
+    }
+
+    .cover__rule-bottom {
+      width: 3in;
+      height: 1.5px;
+      background: #C8A96E;
+      margin-bottom: 2.5em;
+    }
+
+    .cover__qr {
+      width: 1.2in;
+      height: 1.2in;
+      border: 1.5px dashed #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5em;
+      color: #bbb;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .cover__qr-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      color: #999;
+    }
+
+    /* ---- Section layout ---- */
+    .section {
+      margin-bottom: 1.8em;
+    }
+
+    .section:first-of-type {
+      margin-top: 0;
+    }
+
+    /* ---- Info box / callout ---- */
+    .info-box {
+      border: 1px solid #ddd;
+      border-left: 3px solid #2D4A3E;
+      padding: 0.6em 0.8em;
+      margin: 0.8em 0;
+      background: #fafaf8;
+      page-break-inside: avoid;
+    }
+
+    .info-box--accent {
+      border-left-color: #C8A96E;
+    }
+
+    .info-box p {
+      margin-bottom: 0.3em;
+    }
+
+    .info-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ---- WiFi box ---- */
+    .wifi-box {
+      border: 1.5px solid #2D4A3E;
+      padding: 0.7em 1em;
+      margin: 0.8em 0;
+      text-align: center;
+      page-break-inside: avoid;
+    }
+
+    .wifi-box__title {
+      font-size: 10pt;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #2D4A3E;
+      margin-bottom: 0.5em;
+    }
+
+    .wifi-box__field {
+      margin-bottom: 0.3em;
+    }
+
+    .wifi-box__label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888;
+    }
+
+    .wifi-box__value {
+      font-family: 'Courier New', monospace;
+      font-size: 14pt;
+      font-weight: 700;
+      color: #2D4A3E;
+    }
+
+    /* ---- Two-column layout ---- */
+    .two-col {
+      display: flex;
+      gap: 1.2em;
+    }
+
+    .two-col > div {
+      flex: 1;
+    }
+
+    /* ---- Compact list ---- */
+    .rec-list {
+      list-style: none;
+      margin: 0.4em 0;
+    }
+
+    .rec-list li {
+      padding: 0.25em 0;
+      border-bottom: 0.5px solid #eee;
+      page-break-inside: avoid;
+    }
+
+    .rec-list li:last-child {
+      border-bottom: none;
+    }
+
+    .rec-name {
+      font-weight: 700;
+    }
+
+    .rec-time {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8.5pt;
+      color: #888;
+      margin-left: 0.3em;
+    }
+
+    .rec-desc {
+      font-size: 9.5pt;
+      color: #5A4D3B;
+      display: block;
+      margin-top: 0.1em;
+    }
+
+    /* ---- Seasonal grid ---- */
+    .season-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      margin-top: 0.6em;
+    }
+
+    .season-block {
+      flex: 1 1 45%;
+      min-width: 2.8in;
+      border: 1px solid #ddd;
+      padding: 0.6em 0.7em;
+      page-break-inside: avoid;
+    }
+
+    .season-block__title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #2D4A3E;
+      margin-bottom: 0.3em;
+      padding-bottom: 0.2em;
+      border-bottom: 1px solid #eee;
+    }
+
+    .season-block ul {
+      list-style: none;
+      margin: 0;
+    }
+
+    .season-block li {
+      font-size: 9.5pt;
+      color: #5A4D3B;
+      padding: 0.15em 0;
+      padding-left: 0.8em;
+      text-indent: -0.8em;
+    }
+
+    .season-block li::before {
+      content: '·  ';
+      color: #C8A96E;
+      font-weight: 700;
+    }
+
+    /* ---- Checklist ---- */
+    .checklist {
+      list-style: none;
+      margin: 0.5em 0;
+    }
+
+    .checklist li {
+      padding: 0.2em 0;
+      padding-left: 1.3em;
+      text-indent: -1.3em;
+    }
+
+    .checklist li::before {
+      content: '☐  ';
+      color: #999;
+    }
+
+    /* ---- Emergency box ---- */
+    .emergency-box {
+      border: 2px solid #2D4A3E;
+      padding: 0.6em 0.8em;
+      margin-top: 0.8em;
+      page-break-inside: avoid;
+    }
+
+    .emergency-box h3 {
+      font-size: 11pt;
+      margin-bottom: 0.3em;
+      margin-top: 0;
+    }
+
+    .emergency-box p {
+      margin-bottom: 0.25em;
+    }
+
+    /* ---- Footer on each page ---- */
+    .page-footer {
+      margin-top: 2em;
+      padding-top: 0.5em;
+      border-top: 0.5px solid #ddd;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7pt;
+      color: #bbb;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    /* ---- Screen-only preview styles ---- */
+    @media screen {
+      body {
+        max-width: 7in;
+        margin: 1in auto;
+        padding: 0 0.5in;
+      }
+
+      .page-break {
+        border-top: 1px dashed #ddd;
+        padding-top: 2em;
+        margin-top: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================================================================
+       COVER PAGE
+       ================================================================ -->
+  <div class="cover">
+    <div class="cover__rule-top"></div>
+    <div class="cover__label">Guest Guide</div>
+    <h1 class="cover__title">Happy Valley<br>Lake House</h1>
+    <p class="cover__subtitle">Your guide to the cabin, the lake &amp; the valley</p>
+    <p class="cover__address">45 Shore Drive, Shutesbury, MA 01072</p>
+    <div class="cover__rule-bottom"></div>
+    <div class="cover__qr">QR Code<br>Placeholder</div>
+    <p class="cover__qr-label">Scan for the digital guest book</p>
+  </div>
+
+  <!-- ================================================================
+       WELCOME
+       ================================================================ -->
+  <div class="section">
+    <h2>Welcome</h2>
+    <p>Welcome to the Happy Valley Lake House.</p>
+    <p>We're so glad you're here. This little cabin on the lake is our favorite place in the world, and we love sharing it with friends, family, and fellow adventurers. Make yourselves at home — put your feet up, take the kayaks out, or just sit on the deck and watch the water. That's what this place is for.</p>
+    <p style="margin-top: 0.8em; font-style: italic; color: #5A4D3B;">— Sam &amp; Mary Ann</p>
+  </div>
+
+  <!-- ================================================================
+       ARRIVAL & ACCESS
+       ================================================================ -->
+  <div class="section">
+    <h2>Arrival &amp; Access</h2>
+
+    <div class="info-box">
+      <p><strong>Check-in:</strong> 3:00 PM</p>
+      <p><strong>Keypad Code:</strong> 3739 — after entering the code, press the horizontal button to unlock.</p>
+      <p><strong>Parking:</strong> Driveway only, please.</p>
+      <p><strong>Shoes:</strong> We keep a no-shoes policy inside. Kick them off at the door.</p>
+    </div>
+
+    <h3>Need Anything?</h3>
+    <p><strong>Sam:</strong> (413) 559-8911 &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Mary Ann:</strong> (413) 588-1609</p>
+    <p>Don't hesitate to reach out — we're happy to help.</p>
+  </div>
+
+  <!-- ================================================================
+       THE CABIN
+       ================================================================ -->
+  <div class="page-break section">
+    <h2>The Cabin</h2>
+    <p>Our cabin is small but thoughtful — every room has a purpose and a personality.</p>
+
+    <div class="two-col" style="margin-top: 0.8em;">
+      <div>
+        <h4>Main Room</h4>
+        <p>The living room and kitchen share one open space with big windows facing the lake. It's the heart of the house — cook, eat, read, or just stare at the water.</p>
+
+        <h4>Loft Bedroom</h4>
+        <p>Up the stairs — a queen bed tucked under the roofline. The morning light up here is something special.</p>
+
+        <h4>Guest Room</h4>
+        <p>A queen bed on the first floor. Simple, quiet, and comfortable.</p>
+      </div>
+      <div>
+        <h4>Bunk Room</h4>
+        <p>Four twin beds. Perfect for kids (or kids at heart). Cozy and everyone loves it.</p>
+
+        <h4>Bathroom</h4>
+        <p>Recently renovated by us — yes, we DIY'd the whole thing. Towels, soap, and shampoo are all provided.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       HOUSE ESSENTIALS
+       ================================================================ -->
+  <div class="page-break section">
+    <h2>House Essentials</h2>
+
+    <div class="wifi-box no-break">
+      <div class="wifi-box__title">WiFi</div>
+      <div class="wifi-box__field">
+        <span class="wifi-box__label">Network</span><br>
+        <span class="wifi-box__value">brodeo</span>
+      </div>
+      <div class="wifi-box__field">
+        <span class="wifi-box__label">Password</span><br>
+        <span class="wifi-box__value">ellieandbird29landy</span>
+      </div>
+    </div>
+
+    <h3>Heating &amp; Cooling</h3>
+    <ul class="rec-list">
+      <li><span class="rec-name">Main Room —</span> The split unit is controlled by a thermostat on the windowsill. Handles both heat and AC.</li>
+      <li><span class="rec-name">Bathroom —</span> Baseboard heater with a knob. Turn as needed.</li>
+      <li><span class="rec-name">Bunk &amp; Guest Rooms —</span> Wall thermostat behind the bunk room door controls both rooms. <strong>Please don't touch the baseboard thermostats</strong> in these rooms.</li>
+    </ul>
+
+    <h3>Wood Stove</h3>
+    <p>Firewood is stocked outside. Open the damper before lighting, start with kindling and small pieces, and let it build. Close the damper partway once the fire is established to control the burn. Make sure the fire is fully out before leaving or going to bed.</p>
+
+    <h3>Kitchen</h3>
+    <p>Stocked with basics — olive oil, salt, pepper, spices, coffee, tea, and more. Help yourself to anything that's here. If you use something up, no worries.</p>
+
+    <h3>Trash &amp; Recycling</h3>
+    <div class="info-box info-box--accent">
+      <p>Shutesbury requires <strong>yellow town trash bags</strong> — you'll find them under the sink. The barrel is under the deck. Separate paper from plastics for recycling; bins are next to the barrel.</p>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       ON THE WATER & SWIMMING
+       ================================================================ -->
+  <div class="page-break section">
+    <h2>On the Water</h2>
+    <p>In the backyard you'll find a <strong>canoe</strong>, <strong>two kayaks</strong>, and a <strong>paddle boat</strong> — all yours to use. Life jackets are in the bin to the right of the deck.</p>
+    <p>Please return boats to the yard before you leave. Guests are responsible for their own safety on the water.</p>
+
+    <h2 style="margin-top: 1.4em;">Swimming</h2>
+    <ul class="rec-list">
+      <li>
+        <span class="rec-name">Hans Bietsch Beach</span> <span class="rec-time">2-min walk</span>
+        <span class="rec-desc">Our go-to spot. Head right at the bottom of the driveway. Small, quiet, and perfect.</span>
+      </li>
+      <li>
+        <span class="rec-name">Lake Wyola State Beach</span> <span class="rec-time">½ mile</span>
+        <span class="rec-desc">Sandy beach with parking and lifeguards in summer. Great if you want more space.</span>
+      </li>
+    </ul>
+    <p style="margin-top: 0.5em;"><strong>Beach towels</strong> are in the upstairs dresser — grab as many as you need.</p>
+  </div>
+
+  <!-- ================================================================
+       LOCAL RECOMMENDATIONS
+       ================================================================ -->
+  <div class="page-break section">
+    <h2>Local Recommendations</h2>
+
+    <div class="two-col">
+      <div>
+        <h3>Groceries</h3>
+        <ul class="rec-list">
+          <li>
+            <span class="rec-name">Leverett Village Co-op</span> <span class="rec-time">7 min</span>
+            <span class="rec-desc">Small but well-curated. Great basics, local produce, solid deli.</span>
+          </li>
+          <li>
+            <span class="rec-name">Flis Market</span> <span class="rec-time">~15 min</span>
+            <span class="rec-desc">Local staple. Good meat counter, everyday essentials.</span>
+          </li>
+          <li>
+            <span class="rec-name">Green Fields Market</span> <span class="rec-time">20 min</span>
+            <span class="rec-desc">Full-size natural grocery in Greenfield. Has everything.</span>
+          </li>
+          <li>
+            <span class="rec-name">Instacart</span>
+            <span class="rec-desc">Delivery works out here if you'd rather stay at the lake.</span>
+          </li>
+        </ul>
+
+        <h3>Hiking</h3>
+        <ul class="rec-list">
+          <li>
+            <span class="rec-name">Lake Wyola State Park</span> <span class="rec-time">5 min</span>
+            <span class="rec-desc">Easy trails right around the lake.</span>
+          </li>
+          <li>
+            <span class="rec-name">Ames Pond / Kestrel Land Trust</span> <span class="rec-time">5 min</span>
+            <span class="rec-desc">Quiet conservation land. Great for birding.</span>
+          </li>
+          <li>
+            <span class="rec-name">Mount Toby</span> <span class="rec-time">15 min</span>
+            <span class="rec-desc">Panoramic views from the fire tower. Our favorite hike.</span>
+          </li>
+          <li>
+            <span class="rec-name">Wendell State Forest</span> <span class="rec-time">10 min</span>
+            <span class="rec-desc">Miles of wooded trails. Feels remote and wild.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Places to Visit</h3>
+        <ul class="rec-list">
+          <li>
+            <span class="rec-name">Peace Pagoda</span> <span class="rec-time">10 min</span>
+            <span class="rec-desc">Buddhist pagoda in the Leverett woods. Serene and surprising.</span>
+          </li>
+          <li>
+            <span class="rec-name">Montague Book Mill</span> <span class="rec-time">15 min</span>
+            <span class="rec-desc">"Books you don't need in a place you can't find."</span>
+          </li>
+          <li>
+            <span class="rec-name">Bridge of Flowers</span> <span class="rec-time">40 min</span>
+            <span class="rec-desc">Garden-covered bridge in Shelburne Falls. Stunning.</span>
+          </li>
+          <li>
+            <span class="rec-name">Mass MoCA</span> <span class="rec-time">1 hr+</span>
+            <span class="rec-desc">World-class contemporary art in North Adams.</span>
+          </li>
+        </ul>
+
+        <h3>Places to Eat</h3>
+        <ul class="rec-list">
+          <li>
+            <span class="rec-name">Dejabrew</span> <span class="rec-time">6 min</span>
+            <span class="rec-desc">Quirky cafe in the Wendell woods. See it to believe it.</span>
+          </li>
+          <li>
+            <span class="rec-name">North Village Smokehouse</span> <span class="rec-time">15 min</span>
+            <span class="rec-desc">Solid barbecue. Good portions, good vibe.</span>
+          </li>
+          <li>
+            <span class="rec-name">Watershed</span> <span class="rec-time">15 min</span>
+            <span class="rec-desc">Farm-to-table in Montague. Great for a nicer dinner.</span>
+          </li>
+          <li>
+            <span class="rec-name">Wagon Wheel</span> <span class="rec-time">20 min</span>
+            <span class="rec-desc">Classic roadside spot. Huge portions. Cash only.</span>
+          </li>
+        </ul>
+
+        <h3>Places to Drink</h3>
+        <ul class="rec-list">
+          <li>
+            <span class="rec-name">Lady Killigrew</span> <span class="rec-time">15 min</span>
+            <span class="rec-desc">Cozy pub at the Book Mill. Patio over the river.</span>
+          </li>
+          <li>
+            <span class="rec-name">4 Star Farms &amp; Brewery</span> <span class="rec-time">20 min</span>
+            <span class="rec-desc">Working farm taproom. Beautiful setting.</span>
+          </li>
+          <li>
+            <span class="rec-name">Treehouse Brewery</span> <span class="rec-time">20 min</span>
+            <span class="rec-desc">Some of the best beer in New England.</span>
+          </li>
+          <li>
+            <span class="rec-name">Element Brewery</span> <span class="rec-time">10 min</span>
+            <span class="rec-desc">Small, local, laid-back. A nice pint without the crowds.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       SEASONAL GUIDE
+       ================================================================ -->
+  <div class="page-break section">
+    <h2>Seasonal Guide</h2>
+    <p style="margin-bottom: 0.8em;">Every season at the lake has its own magic. Here's what we love most.</p>
+
+    <div class="season-grid">
+      <div class="season-block">
+        <div class="season-block__title">☀&ensp;Summer</div>
+        <ul>
+          <li>Swim at Hans Bietsch Beach every single day — you're two minutes away.</li>
+          <li>Kayak in the early morning or late afternoon when the lake is glass.</li>
+          <li>Hike Mount Toby before it gets hot, then reward yourself with a Treehouse beer run.</li>
+          <li>Spend an evening around the firepit. Marshmallows are probably in the pantry.</li>
+          <li>Do absolutely nothing on the deck. This is encouraged.</li>
+        </ul>
+      </div>
+
+      <div class="season-block">
+        <div class="season-block__title">🍂&ensp;Fall</div>
+        <ul>
+          <li>The foliage around the lake is unreal — peak color is usually mid-October.</li>
+          <li>Go apple picking at a local orchard. The valley is full of them.</li>
+          <li>Hike Mount Toby for fire tower views when the leaves are turning.</li>
+          <li>Light the wood stove for the first time. It changes everything.</li>
+          <li>Drive out to the Bridge of Flowers — it's magical in autumn light.</li>
+        </ul>
+      </div>
+
+      <div class="season-block">
+        <div class="season-block__title">❄&ensp;Winter</div>
+        <ul>
+          <li>The wood stove is your best friend. Keep it going all day.</li>
+          <li>Hike Wendell State Forest after a snowfall. The quiet is something else.</li>
+          <li>Have a cozy day in — cook a big meal, play games, watch the snow fall.</li>
+          <li>Ski Berkshire East, about 45 minutes away. Great day trip.</li>
+          <li>Bundle up and walk the lake road at night. The stars will stop you.</li>
+        </ul>
+      </div>
+
+      <div class="season-block">
+        <div class="season-block__title">🌸&ensp;Spring</div>
+        <ul>
+          <li>Watch for wildflowers along the trails — April through May.</li>
+          <li>Test the lake water with your toes. It's cold, but the brave get bragging rights.</li>
+          <li>Visit the Peace Pagoda gardens when everything is blooming.</li>
+          <li>Browse the Book Mill on a rainy afternoon. Grab a coffee and a stack of paperbacks.</li>
+          <li>Open every window and let the fresh air in. Spring up here smells incredible.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       DEPARTURE
+       ================================================================ -->
+  <div class="page-break section">
+    <h2>Departure</h2>
+
+    <div class="info-box">
+      <p><strong>Checkout:</strong> 11:00 AM</p>
+    </div>
+
+    <p style="margin-top: 0.6em;">Before you head out, we'd appreciate a hand with the basics:</p>
+
+    <ul class="checklist">
+      <li>Wash your dishes — or run the dishwasher if it's full.</li>
+      <li>Take out the trash and recycling. Yellow bags for trash; barrel and bins under the deck.</li>
+      <li>Hang up your towels so they dry. No need to wash them.</li>
+      <li>No need to strip the beds — we'll take care of the linens.</li>
+      <li>Lock the door — press the horizontal button on the keypad.</li>
+      <li>Sign the guest book! We love reading what people write.</li>
+    </ul>
+
+    <p style="margin-top: 1em; font-style: italic; color: #5A4D3B;">Thank you for staying with us. We hope the lake treated you well.</p>
+  </div>
+
+  <!-- ================================================================
+       ESSENTIALS & EMERGENCY
+       ================================================================ -->
+  <div class="section">
+    <h2>Essentials &amp; Emergency</h2>
+
+    <div class="emergency-box">
+      <h3>Emergency: Call 911</h3>
+      <p><strong>Hospital:</strong> Baystate Franklin Medical Center, Greenfield — about 20 minutes away.</p>
+    </div>
+
+    <h3 style="margin-top: 1em;">Your Hosts</h3>
+    <p><strong>Sam:</strong> (413) 559-8911</p>
+    <p><strong>Mary Ann:</strong> (413) 588-1609</p>
+    <p style="margin-top: 0.4em;">We're always just a call or text away. Don't hesitate for anything — big or small.</p>
+
+    <div class="page-footer">
+      Happy Valley Lake House &nbsp;·&nbsp; 45 Shore Drive, Shutesbury, MA 01072 &nbsp;·&nbsp; Sam &amp; Mary Ann
+    </div>
+  </div>
+
+</body>
+</html>
