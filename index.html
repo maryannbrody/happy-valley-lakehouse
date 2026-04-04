@@ -260,8 +260,524 @@
     </div>
   </section>
 
-  <!-- Remaining sections (water, swimming, recommendations, seasonal,
-       departure, emergency, footer) will be added in the next update. -->
+  <!-- ================================================================
+       ON THE WATER
+       ================================================================ -->
+  <section id="water">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Get Out There</span>
+        <h2 class="section-title">On the Water</h2>
+        <p class="section-subtitle">The lake is the whole point, and we've got you covered.</p>
+      </div>
+
+      <div class="card-grid fade-in">
+        <div class="card">
+          <div class="card__icon">🛶</div>
+          <h3 class="card__title">Canoe</h3>
+          <p class="card__text">In the backyard and ready to go. Great for a mellow paddle along the shore.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">🚣</div>
+          <h3 class="card__title">Kayaks</h3>
+          <p class="card__text">Two kayaks in the backyard. Perfect for exploring the lake solo or side by side.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">🚢</div>
+          <h3 class="card__title">Paddle Boat</h3>
+          <p class="card__text">Also in the backyard. A fun, relaxed way to get out on the water — kids love it.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">🦺</div>
+          <h3 class="card__title">Life Jackets</h3>
+          <p class="card__text">In the bin to the right of the deck. Please grab one for everyone heading out.</p>
+        </div>
+      </div>
+
+      <div class="callout callout--blue mt-xl fade-in">
+        <h4 class="callout__title">Before You Go</h4>
+        <p class="callout__text">Please <strong>return the boats to the yard before you leave</strong>. The lake is calm and beautiful, but use good judgment — <strong>guests are responsible for their own safety on the water</strong>, especially with kids.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       SWIMMING
+       ================================================================ -->
+  <section id="swimming">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Take a Dip</span>
+        <h2 class="section-title">Swimming</h2>
+      </div>
+
+      <div class="card-grid fade-in">
+        <div class="card">
+          <!-- REPLACE: Photo of Hans Bietsch Beach -->
+          <div class="card__icon">🏖️</div>
+          <h3 class="card__title">Hans Bietsch Beach</h3>
+          <p class="card__text">Our go-to spot. It's a 2-minute walk — head right at the bottom of the driveway and you'll see it. Small, quiet, and perfect.</p>
+          <div class="card__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>2-minute walk — go right at driveway</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">🏊</div>
+          <h3 class="card__title">Lake Wyola State Beach</h3>
+          <p class="card__text">About half a mile down the road. There's a parking area, a sandy beach, and lifeguards on duty in the summer. Great option if you want a little more space.</p>
+          <div class="card__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>Half a mile &middot; Parking &middot; Lifeguards in summer</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-lg fade-in"><strong>Beach towels</strong> are in the upstairs dresser — grab as many as you need.</p>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       LOCAL RECOMMENDATIONS
+       ================================================================ -->
+  <section id="recommendations">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Explore the Valley</span>
+        <h2 class="section-title">Local Recommendations</h2>
+        <p class="section-subtitle">Our favorite spots for groceries, hikes, food, drinks, and day trips.</p>
+      </div>
+
+      <!-- Interactive Map -->
+      <div id="map" class="fade-in" style="height: 450px; border-radius: 0.75rem; margin-bottom: 2.5rem; z-index: 1;"></div>
+
+      <!-- Groceries -->
+      <div class="mt-xl fade-in">
+        <h3><span class="badge badge--groceries">Groceries</span></h3>
+        <div class="rec-list mt-md">
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Leverett Village Co-op</span>
+              <span class="rec-item__distance">7 min</span>
+            </div>
+            <p class="rec-item__description">Small but well-curated. Great for basics, local produce, and a solid deli counter.</p>
+          </div>
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Flis Market</span>
+              <span class="rec-item__distance">~15 min</span>
+            </div>
+            <p class="rec-item__description">A local staple in the valley. Good meat counter, everyday essentials.</p>
+          </div>
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Green Fields Market</span>
+              <span class="rec-item__distance">20 min</span>
+            </div>
+            <p class="rec-item__description">Full-size natural grocery store in Greenfield — you can get everything here.</p>
+          </div>
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Instacart</span>
+            </div>
+            <p class="rec-item__description">Delivery works out here if you'd rather not leave the lake.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hiking -->
+      <div class="mt-xl fade-in">
+        <h3><span class="badge badge--hiking">Hiking</span></h3>
+        <div class="rec-list mt-md">
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Lake Wyola State Park</span>
+              <span class="rec-item__distance">5 min</span>
+            </div>
+            <p class="rec-item__description">Easy trails right around the lake. Beautiful and accessible.</p>
+          </div>
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Ames Pond / Kestrel Land Trust</span>
+              <span class="rec-item__distance">5 min</span>
+            </div>
+            <p class="rec-item__description">A quiet, peaceful walk through conservation land. Great for birding.</p>
+          </div>
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Mount Toby</span>
+              <span class="rec-item__distance">15 min</span>
+            </div>
+            <p class="rec-item__description">A rewarding climb with panoramic views from the summit fire tower. Our favorite hike in the area.</p>
+          </div>
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Wendell State Forest</span>
+              <span class="rec-item__distance">10 min</span>
+            </div>
+            <p class="rec-item__description">Miles of wooded trails. Feels remote and wild, even though it's right next door.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Places to Visit -->
+      <div class="mt-xl fade-in">
+        <h3><span class="badge badge--visit">Places to Visit</span></h3>
+        <div class="rec-list mt-md">
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Peace Pagoda</span>
+              <span class="rec-item__distance">10 min</span>
+            </div>
+            <p class="rec-item__description">A Buddhist peace pagoda in the woods of Leverett. Serene, surprising, and worth the visit.</p>
+          </div>
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Montague Book Mill</span>
+              <span class="rec-item__distance">15 min</span>
+            </div>
+            <p class="rec-item__description">"Books you don't need in a place you can't find." A used bookstore in a converted mill on the river. Get a coffee and browse for an hour.</p>
+          </div>
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Bridge of Flowers</span>
+              <span class="rec-item__distance">40 min</span>
+            </div>
+            <p class="rec-item__description">A retired trolley bridge covered in gardens in Shelburne Falls. Genuinely stunning, especially in summer and fall.</p>
+          </div>
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Mass MoCA</span>
+              <span class="rec-item__distance">1 hr+</span>
+            </div>
+            <p class="rec-item__description">One of the best contemporary art museums in the country, in North Adams. Worth the drive if you have a full day.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Places to Eat -->
+      <div class="mt-xl fade-in">
+        <h3><span class="badge badge--eat">Places to Eat</span></h3>
+        <div class="rec-list mt-md">
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Dejabrew</span>
+              <span class="rec-item__distance">6 min</span>
+            </div>
+            <p class="rec-item__description">A quirky, beloved coffee shop and cafe in the middle of the Wendell woods. You have to see it to believe it.</p>
+          </div>
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">North Village Smokehouse</span>
+              <span class="rec-item__distance">15 min</span>
+            </div>
+            <p class="rec-item__description">Solid barbecue in a no-frills setting. Good portions, good vibe.</p>
+          </div>
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Watershed</span>
+              <span class="rec-item__distance">15 min</span>
+            </div>
+            <p class="rec-item__description">Farm-to-table done right in Montague. Great for a nicer dinner out.</p>
+          </div>
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Wagon Wheel</span>
+              <span class="rec-item__distance">20 min</span>
+            </div>
+            <p class="rec-item__description">Classic roadside restaurant in Gill with huge portions and a loyal following. Cash only.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Places to Drink -->
+      <div class="mt-xl fade-in">
+        <h3><span class="badge badge--drink">Places to Drink</span></h3>
+        <div class="rec-list mt-md">
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Lady Killigrew</span>
+              <span class="rec-item__distance">15 min</span>
+            </div>
+            <p class="rec-item__description">A cozy pub at the Book Mill with great beer, good food, and a patio overlooking the river.</p>
+          </div>
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">4 Star Farms &amp; Brewery</span>
+              <span class="rec-item__distance">20 min</span>
+            </div>
+            <p class="rec-item__description">A working farm with a taproom in Northfield. Beautiful setting, excellent beer.</p>
+          </div>
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Treehouse Brewery</span>
+              <span class="rec-item__distance">20 min</span>
+            </div>
+            <p class="rec-item__description">If you know, you know. Some of the best beer in New England. Plan for a line, but it moves fast.</p>
+          </div>
+          <div class="rec-item">
+            <div class="rec-item__header">
+              <span class="rec-item__name">Element Brewery</span>
+              <span class="rec-item__distance">10 min</span>
+            </div>
+            <p class="rec-item__description">Small, local, and laid-back in Millers Falls. A nice spot to grab a pint without the crowds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       SEASONAL GUIDE
+       ================================================================ -->
+  <section id="seasonal">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Year-Round</span>
+        <h2 class="section-title">Seasonal Guide</h2>
+        <p class="section-subtitle">Every season at the lake has its own magic. Here's what we love most.</p>
+      </div>
+
+      <!-- Season Tabs -->
+      <div class="season-tabs fade-in">
+        <button class="season-tab active" data-season="summer">Summer</button>
+        <button class="season-tab" data-season="fall">Fall</button>
+        <button class="season-tab" data-season="winter">Winter</button>
+        <button class="season-tab" data-season="spring">Spring</button>
+      </div>
+
+      <!-- Summer -->
+      <div class="season-panel active" data-season="summer">
+        <div class="season-card fade-in">
+          <div class="season-card__list">
+            <div class="season-card__item">
+              <span class="season-card__bullet">🏖️</span>
+              <p class="season-card__text"><strong>Swim at Hans Bietsch Beach every single day.</strong> You're two minutes away — take advantage of it.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">🛶</span>
+              <p class="season-card__text"><strong>Take the kayaks out</strong> in the early morning or late afternoon when the lake is glass.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">🥾</span>
+              <p class="season-card__text"><strong>Hike Mount Toby before it gets hot</strong> and reward yourself with a Treehouse beer run on the way home.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">🔥</span>
+              <p class="season-card__text"><strong>Spend an evening around the firepit.</strong> Marshmallows are probably in the pantry.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">😌</span>
+              <p class="season-card__text"><strong>Do absolutely nothing on the deck.</strong> This is not only allowed, it's encouraged.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fall -->
+      <div class="season-panel" data-season="fall">
+        <div class="season-card fade-in">
+          <div class="season-card__list">
+            <div class="season-card__item">
+              <span class="season-card__bullet">🍂</span>
+              <p class="season-card__text"><strong>The foliage around the lake is unreal</strong> — peak color is usually mid-October. Just sit on the deck and take it in.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">🍎</span>
+              <p class="season-card__text"><strong>Go apple picking</strong> at a local orchard. The valley is full of them.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">🗼</span>
+              <p class="season-card__text"><strong>Hike Mount Toby for the fire tower views</strong> when the leaves are turning. Bring a camera.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">🪵</span>
+              <p class="season-card__text"><strong>Light the wood stove for the first time</strong> and let the cabin fill with that smoky warmth. It changes everything.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">🌉</span>
+              <p class="season-card__text"><strong>Drive out to the Bridge of Flowers</strong> before the season ends — it's magical in autumn light.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Winter -->
+      <div class="season-panel" data-season="winter">
+        <div class="season-card fade-in">
+          <div class="season-card__list">
+            <div class="season-card__item">
+              <span class="season-card__bullet">🔥</span>
+              <p class="season-card__text"><strong>The wood stove is your best friend.</strong> Keep it going all day and let the cabin get toasty.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">❄️</span>
+              <p class="season-card__text"><strong>Hike Wendell State Forest after a snowfall.</strong> The quiet in those woods is something else entirely.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">🍲</span>
+              <p class="season-card__text"><strong>Have a cozy day inside</strong> — cook a big meal, play games, read books, watch the snow fall on the lake.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">⛷️</span>
+              <p class="season-card__text"><strong>Ski Berkshire East</strong> — about 45 minutes away. Great for a day trip, solid mountain for all levels.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">✨</span>
+              <p class="season-card__text"><strong>Bundle up and walk the lake road at night.</strong> The stars out here will stop you in your tracks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spring -->
+      <div class="season-panel" data-season="spring">
+        <div class="season-card fade-in">
+          <div class="season-card__list">
+            <div class="season-card__item">
+              <span class="season-card__bullet">🌸</span>
+              <p class="season-card__text"><strong>Watch for wildflowers along the trails</strong> — they start popping in April and keep going through May.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">🦶</span>
+              <p class="season-card__text"><strong>Test the lake water with your toes.</strong> It's cold, but the brave get bragging rights.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">☮️</span>
+              <p class="season-card__text"><strong>Visit the Peace Pagoda gardens</strong> when everything is blooming. It's a peaceful way to spend a morning.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">📚</span>
+              <p class="season-card__text"><strong>Browse the Book Mill on a rainy afternoon.</strong> Grab a coffee at the cafe and a stack of paperbacks.</p>
+            </div>
+            <div class="season-card__item">
+              <span class="season-card__bullet">🌿</span>
+              <p class="season-card__text"><strong>Open every window in the cabin</strong> and let the fresh air in. Spring up here smells incredible.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       DEPARTURE
+       ================================================================ -->
+  <section id="departure">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Heading Out</span>
+        <h2 class="section-title">Departure</h2>
+        <p class="section-subtitle">Checkout is at <strong>11:00 AM</strong>. Before you head out, we'd appreciate a hand with the basics.</p>
+      </div>
+
+      <div class="checklist fade-in">
+        <div class="checklist__item">
+          <span class="checklist__marker"></span>
+          <span><strong>Wash your dishes</strong> — or run the dishwasher if it's full.</span>
+        </div>
+        <div class="checklist__item">
+          <span class="checklist__marker"></span>
+          <span><strong>Take out the trash and recycling</strong> — remember, yellow bags for trash. Barrel and bins are under the deck.</span>
+        </div>
+        <div class="checklist__item">
+          <span class="checklist__marker"></span>
+          <span><strong>Hang up your towels</strong> — no need to wash them, just hang them so they dry.</span>
+        </div>
+        <div class="checklist__item">
+          <span class="checklist__marker"></span>
+          <span><strong>No need to strip the beds</strong> — we'll take care of the linens.</span>
+        </div>
+        <div class="checklist__item">
+          <span class="checklist__marker"></span>
+          <span><strong>Lock the door</strong> — press the horizontal button on the keypad as you leave.</span>
+        </div>
+        <div class="checklist__item">
+          <span class="checklist__marker"></span>
+          <span><strong>Sign the guest book!</strong> — We love reading what people write. Leave us a note before you go.</span>
+        </div>
+      </div>
+
+      <p class="mt-xl fade-in" style="font-style: italic; color: var(--color-text-light);">Thank you for staying with us. We hope the lake treated you well.</p>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       ESSENTIALS & EMERGENCY
+       ================================================================ -->
+  <section id="emergency">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Just in Case</span>
+        <h2 class="section-title">Essentials &amp; Emergency</h2>
+      </div>
+
+      <div class="card-grid fade-in">
+        <div class="card" style="border-left: 3px solid #c0392b;">
+          <div class="card__icon">🚨</div>
+          <h3 class="card__title">Emergency</h3>
+          <p class="card__text">Call <strong>911</strong></p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">🏥</div>
+          <h3 class="card__title">Hospital</h3>
+          <p class="card__text"><strong>Baystate Franklin Medical Center</strong>, Greenfield — about 20 minutes away.</p>
+        </div>
+      </div>
+
+      <div class="mt-xl fade-in">
+        <h3>Your Hosts</h3>
+        <div class="contact-strip mt-md">
+          <div class="contact-strip__item">
+            <div class="contact-strip__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <div>
+              <p class="contact-strip__name">Sam</p>
+              <p class="contact-strip__phone"><a href="tel:+14135598911">(413) 559-8911</a></p>
+            </div>
+          </div>
+          <div class="contact-strip__item">
+            <div class="contact-strip__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <div>
+              <p class="contact-strip__name">Mary Ann</p>
+              <p class="contact-strip__phone"><a href="tel:+14135881609">(413) 588-1609</a></p>
+            </div>
+          </div>
+        </div>
+        <p class="mt-md">We're always just a call or text away. Don't hesitate to reach out for anything — big or small.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <p class="footer__logo">Happy Valley Lake House</p>
+          <p class="footer__tagline">A little cabin on Lake Wyola in Shutesbury, Massachusetts. Our favorite place in the world — and we love sharing it with you.</p>
+        </div>
+        <div class="footer__contact">
+          <a href="tel:+14135598911">Sam: (413) 559-8911</a>
+          <a href="tel:+14135881609">Mary Ann: (413) 588-1609</a>
+          <a href="#hero">Back to top &uarr;</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>45 Shore Drive, Shutesbury, MA 01072 &nbsp;&middot;&nbsp; Made with love by Sam &amp; Mary Ann</p>
+      </div>
+    </div>
+  </footer>
 
   <!-- Site Script -->
   <script src="script.js"></script>
